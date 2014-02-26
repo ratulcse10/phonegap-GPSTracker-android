@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GPS Tracker</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    
+
+     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
+  
+     <script src="js/jquery-1.9.1.min.js" ></script>
+  	 <script src="js/jquery.mobile-1.3.1.min.js"></script>
+     <script type="text/javascript">
+     </script>
+    <style type="text/css">
+    .containing-element .ui-slider-switch { width: 100% } 
+    
+    .hidingThem {
+      display: none;
+    }
+
+    #user_main_panel {
+      display:none ;
+    }
+    #gps_tracker_status_on,#gps_tracker_status_off,#cause {
+        display: none;
+    }
+    
+    </style>
+
+    <script type="text/javascript">
+    var isLogin = window.localStorage.getItem("key");
+    if(isLogin === "valide"){
+      alert("You have already logged in !");
+    }
+
+    </script>
+   
+  </head>
+
+   <body >
+    <div data-role="page" id="home">
+    <div data-theme="a" data-role="header">
+        <h3>
+            GPS Tracker
+        </h3>
+        
+    </div>
+    <div data-role="content">
+        
+        
+      	<!--login Panel-->
+        <div id="user_login_panel">
+        <div align="center"> <label>User Login</label> </div>
+         
+        <form id="userLoginForm">   
+        <div data-role="fieldcontain">
+            <label for="userid">
+                User ID
+            </label>
+            <input type="text" id="userid" name="userid"  placeholder="Type your User ID here"  />
+        </div>
+        <div data-role="fieldcontain">
+            <label for="mobile">
+                Mobile No
+            </label>
+            <input type="text" id="mobile" name="mobile"  placeholder="Type your Mobile No here"   />
+        </div>
+        <input id="loginButton" type='submit' value='Log In'>
+        </form>
+        <script type="text/javascript" src="login_process.js"> </script>   
+        </div>
+
+        <!--user Panel-->
+        <div id="user_main_panel">
+        <div align="center"> <label>User Panel</label> </div>
+         
+        <form id="gpsTrackForm">
+        <div class="containing-element">  
+        
+        <p id="gps_tracker_status_on" ><a  data-role="button" data-theme="b">GPS Tracker Started</a></p>
+        <p id="gps_tracker_status_off" ><a  data-role="button" data-theme="a">GPS Tracker Stopped</a></p>
+         <p id="geolocation">GPS Tracker is Starting....</p>
+         
+         <div id="cause">
+         <p>Why GPS Tracker Stopped</p>
+         <ul>
+            <li>If you are using this app for the first time ,then wait some times to setup the app in your system</li>
+            <li>No Internet Connection</li>
+            <li>No Mobile Network</li>
+            <li>Your Decive has no GPS Facility</li>
+            <li>Permission denied for this Application</li>
+            
+         </ul>
+         <p>How to Start GPS Tracker</p>
+         <ul>
+            <li>Check Internet Connection</li>
+            <li>Check Mobile Network</li>
+            <li>Go to <strong>Setting>Location Access></strong></br>Active <strong>Access to my location,Wifi & mobile network location</strong></li>
+           
+         </ul>
+        </div>
+
+
+        </div>
+        <input id="logoutButton" type='button' value='Logout'>
+        </form>
+      <script type="text/javascript" src="gps_track.js"> </script> 
+        <script type="text/javascript" src="logout.js"> </script>   
+        </div>
+
+
+
+
+
+    </div>
+
+  
+    
+  </body>
+</html>
